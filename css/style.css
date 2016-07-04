@@ -18,13 +18,21 @@ h6 {
   overflow: auto;
 }
 
-#projects:nth-child(3n+1){
+.project-entry:nth-child(8),
+.project-entry:nth-child(5){
   clear: both;
 }
 
 .work-entry,
 .project-entry {
   padding: 2% 3% 5%;
+}
+
+.work-heading {
+  color: #0c7cb5;
+  margin-top: 10px;
+  display: block;
+  padding-left: 0;
 }
 
 .education-entry {
@@ -137,7 +145,6 @@ a {
   background-color: #2f353f;
 }
 
-/* TODO: Replace with image later */
 #header {
   background-color: #2f353f;
 }

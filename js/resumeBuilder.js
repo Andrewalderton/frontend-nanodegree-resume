@@ -1,9 +1,9 @@
-
+'use strict';
 var bio = {
 	name: 'Andrew Alderton',
 	role: 'Front-End Web Developer',
 	contacts: {
-		mobile: '07718133599',
+		//mobile: '',
 		email: 'andrewalderton@sky.com',
 		github: 'Andrewalderton',
 		twitter: '@Andy_Alderton',
@@ -20,8 +20,8 @@ var bio = {
 		var formattedName = HTMLheaderName.replace('%data%', bio.name);
 		$('#header').prepend(formattedName);
 
-		var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
-		$('#topContacts').append(formattedMobile);
+		// var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
+		// $('#topContacts').append(formattedMobile);
 		var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
 		$('#topContacts').append(formattedEmail);
 		var formattedTwitter = HTMLtwitter.replace('%data%', bio.contacts.twitter);
@@ -31,7 +31,7 @@ var bio = {
 		var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
 		$('#topContacts').append(formattedLocation);
 
-		$('#footerContacts').append(formattedMobile + formattedEmail + formattedTwitter + formattedGithub + formattedLocation);
+		$('#footerContacts').append(formattedEmail + formattedTwitter + formattedGithub + formattedLocation);
 
 		var formattedBioPic = HTMLbioPic.replace('%data%', bio.biopic);
 		$('#header').append(formattedBioPic);
@@ -50,12 +50,12 @@ bio.display();
 var education = {
 	schools: [
 		{
-		  name: 'Bournemouth University',
-		  location: 'Bournemouth',
+			name: 'Bournemouth University',
+			location: 'Bournemouth',
 			degree: 'Masters',
 			majors: ['Directing Digital Film and Television'],
 			dates: '2011 - 2013',
-			url: 'http://www1.bournemouthuniversity.ac.uk'
+			url: 'http://www1.bournemouth.ac.uk'
 		},
 		{
 			name: 'University of the West of England',
@@ -71,20 +71,20 @@ var education = {
 			title: 'Front-End Nanodegree',
 			school: 'Udacity',
 			date: '2016',
-			url: 'udacity.com/nanodegree'
+			url: 'http://udacity.com/nanodegree'
 		},
 		{
 			title: 'Web Design, Front-End Development, WordPress Development',
 			school: 'Treehouse',
 			date: '2015',
-			url: 'teamtreehouse.com/andrewalderton'
+			url: 'http://teamtreehouse.com/andrewalderton'
 		}
 	],
 	display: function() {
 		education.schools.forEach(function(school) {
 			$('#education').append(HTMLschoolStart);
 
-			var formattedSchoolName = HTMLschoolName.replace('%data%', school.name);
+			var formattedSchoolName = HTMLschoolName.replace('%data%', school.name).replace('%datum%', school.url);
 			var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', school.degree);
 			var formattedSchoolTitle = formattedSchoolName + formattedSchoolDegree;
 			$('.education-entry:last').append(formattedSchoolTitle);
@@ -102,14 +102,14 @@ var education = {
 		education.onlineCourses.forEach(function(onlineCourse) {
 			$('#education').append(HTMLschoolStart);
 
-			var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', onlineCourse.title);
+			var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', onlineCourse.title).replace('%datum%', onlineCourse.url);
 			var formattedOnlineSchool = HTMLonlineSchool.replace('%data%', onlineCourse.school);
 			var schoolTitle = formattedOnlineTitle + formattedOnlineSchool;
  			$('.education-entry:last').append(schoolTitle);
 
 			var formattedOnlineDates = HTMLonlineDates.replace("%data%", onlineCourse.date);
 			$(".education-entry:last").append(formattedOnlineDates);
-			var formattedOnlineURL = HTMLonlineURL.replace("%data%", onlineCourse.url);
+			var formattedOnlineURL = HTMLonlineURL.replace("%data%", onlineCourse.url).replace('%datum%', onlineCourse.url);
 			$(".education-entry:last").append(formattedOnlineURL);
 		});
 	}
@@ -166,7 +166,8 @@ var projects = {
 			description: 'First Udacity Nanodegree Project. Developed a responsive website displaying images, descriptions and links to each of the projects completed during my courses.',
 			images: [ 'images/office_640.jpg'
 			],
-			alt: 'office desk'
+			alt: 'office desk',
+			url: 'http://andrewalderton.github.io/nanodegree-portfolio'
 		},
 		{
 			title: 'Arcade Game',
@@ -174,7 +175,8 @@ var projects = {
 			description: 'Recreated the classic arcade game, Frogger, for the Front-End Nanodegree. Added a number of entities to the game, including player characters and enemies.',
 			images: [ 'images/video-games_640.jpg'
 			],
-			alt: 'xbox controller'
+			alt: 'xbox controller',
+			url: 'http://andrewalderton.github.io/frontend-nanodegree-arcade-game'
 		},
 		{
 			title: 'Website Optimisation',
@@ -182,7 +184,8 @@ var projects = {
 			description: 'Optimised a provided website, which contained a number of performance-related issues, achieving a target PageSpeed score and running at 60 frames per second.',
 			images: [ 'images/technology_640.jpg'
 			],
-			alt: 'laptop keyboard'
+			alt: 'laptop keyboard',
+			url: 'http://andrewalderton.github.io/frontend-nanodegree-mobile-portfolio'
 		},
 		{
 			title: 'Neighbourhood Map',
@@ -190,7 +193,8 @@ var projects = {
 			description: 'Fifth Udacity Nanodegree Project. Developed a single-page application featuring a map of my neighbourhood.',
 			images: [ 'images/ipad_640.jpg'
 			],
-			alt: 'iPad displaying a map'
+			alt: 'iPad displaying a map',
+			url: 'http://andrewalderton.github.io/frontend-nanodegree-neighbourhood-map'
 		},
 		{
 			title: 'Health Tracker',
@@ -198,7 +202,8 @@ var projects = {
 			description: 'Developed a single page app, using Backbone, that tracks the user\'s calorie intake and other health-related metrics.',
 			images: [ 'images/fitness_640.jpg'
 			],
-			alt: 'fitness weights'
+			alt: 'fitness weights',
+			url: ''
 		},
 		{
 			title: 'Feed Reader Testing',
@@ -206,7 +211,8 @@ var projects = {
 			description: 'Final Udacity Nanodegree Project. In this project you are given a web-based application that reads RSS feeds.',
 			images: [ 'images/cow_640.jpg'
 			],
-			alt: 'cow'
+			alt: 'cow',
+			url: 'http://andrewalderton.github.io/frontend-nanodegree-feedreader'
 		},
 		{
 			title: 'House Promo Video',
@@ -214,7 +220,8 @@ var projects = {
 			description: 'Directed and edited three-minute promotional video for estate agents, C. J. Hole, helping them to reach a wider range of potential clients through video marketing.',
 			images: [ 'images/house-promo.jpg'
 			],
-			alt: 'House video screenshot'
+			alt: 'House video screenshot',
+			url: 'https://vimeo.com/154409349'
 		},
 		{
 			title: 'Dissertation Project',
@@ -222,7 +229,8 @@ var projects = {
 			description: 'Directed and edited two music videos as part of dissertation, working closely with unsigned bands and developing the project from conception to completion.',
 			images: [ 'images/music.jpg'
 			],
-			alt: 'Band group photo'
+			alt: 'Band group photo',
+			url: 'https://vimeo.com/79493866'
 		},
 		{
 			title: 'Short Film Project',
@@ -230,7 +238,8 @@ var projects = {
 			description: 'Directed three-minute short film, Anticipating Pleasure, collaborating with a screenwriter in developing a script and working closely with professional actors.',
 			images: [ 'images/roshan.jpg'
 			],
-			alt: 'short film screenshot'
+			alt: 'short film screenshot',
+			url: 'https://vimeo.com/82585931'
 		}
 	],
 	display: function() {
@@ -238,7 +247,7 @@ var projects = {
 		projects.projects.forEach(function(project) {
 			$('#projects').append(HTMLprojectStart);
 
-			var formattedProjectTitle = HTMLprojectTitle.replace('%data%', project.title);
+			var formattedProjectTitle = HTMLprojectTitle.replace('%data%', project.title).replace('%datum%', project.url);
 			$('.project-entry:last').append(formattedProjectTitle);
 			var formattedProjectDates = HTMLprojectDates.replace('%data%', project.dates);
 			$('.project-entry:last').append(formattedProjectDates);
@@ -247,7 +256,7 @@ var projects = {
 
 			if (project.images.length > 0) {
 	  		project.images.forEach(function(image) {
-		   		var formattedProjectImage = HTMLprojectImage.replace('%data%', image).replace('%datum%', project.alt);
+		   		var formattedProjectImage = HTMLprojectImage.replace('%data%', image).replace('%datum%', project.alt).replace('%datums%', project.url);
 		      $('.project-entry:last').append(formattedProjectImage);
 				});
 			}
