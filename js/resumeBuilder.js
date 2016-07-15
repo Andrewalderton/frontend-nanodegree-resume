@@ -9,7 +9,7 @@ var bio = {
 		twitter: '@Andy_Alderton',
 		location: 'Bristol, UK'
 	},
-	welcomeMessage: 'Hard-working and motivated front-end developer. Easily adaptable and reliable, willing to go the extra mile to achieve desired results and hit personal targets. An extremely passionate individual with a commitment to creating high-quality websites and web applicaitions, always seeking new creative and personal challenges and responsibilities.',
+	welcomeMessage: 'Hard-working and motivated front-end developer. Easily adaptable and reliable, willing to go the extra mile to achieve desired results and hit personal targets. An extremely passionate individual with a commitment to creating high-quality websites and web applications, always seeking new creative and personal challenges and responsibilities.',
 	skills: [
 		' HTML5', ' CSS3', ' WordPress', ' JavaScript', ' jQuery', ' git', ' Photoshop', ' Illustrator', ' Premiere Pro', ' After Effects'
 	],
