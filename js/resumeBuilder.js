@@ -1,4 +1,4 @@
-'use strict';
+
 var bio = {
 	name: 'Andrew Alderton',
 	role: 'Front-End Web Developer',
@@ -11,7 +11,7 @@ var bio = {
 	},
 	welcomeMessage: 'Hard-working and motivated front-end developer. Easily adaptable and reliable, willing to go the extra mile to achieve desired results and hit personal targets. An extremely passionate individual with a commitment to creating high-quality websites and web applicaitions, always seeking new creative and personal challenges and responsibilities.',
 	skills: [
-		' HTML5', ' CSS3', ' WordPress', ' JavaScript', ' jQuery', ' git', ' Photoshop', ' Illustrator', ' Premiere Pro', ' After Effects'
+		' HTML5', ' CSS3', ' JavaScript', ' jQuery', ' Python', ' PostgreSQL', ' WordPress', ' git', ' Photoshop', ' Premiere Pro', ' After Effects'
 	],
 	biopic: 'images/andy.jpg',
 	display: function() {
@@ -68,6 +68,12 @@ var education = {
 	],
 	onlineCourses: [
 		{
+			title: 'Full Stack Nanodegree',
+			school: 'Udacity',
+			date: '2017',
+			url: 'http://udacity.com/nanodegree'
+		},
+		{
 			title: 'Front-End Nanodegree',
 			school: 'Udacity',
 			date: '2016',
@@ -76,7 +82,7 @@ var education = {
 		{
 			title: 'Web Design, Front-End Development, WordPress Development',
 			school: 'Treehouse',
-			date: '2015',
+			date: '2015-2016',
 			url: 'http://teamtreehouse.com/andrewalderton'
 		}
 	],
@@ -105,7 +111,7 @@ var education = {
 			var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', onlineCourse.title).replace('%datum%', onlineCourse.url);
 			var formattedOnlineSchool = HTMLonlineSchool.replace('%data%', onlineCourse.school);
 			var schoolTitle = formattedOnlineTitle + formattedOnlineSchool;
- 			$('.education-entry:last').append(schoolTitle);
+			$('.education-entry:last').append(schoolTitle);
 
 			var formattedOnlineDates = HTMLonlineDates.replace("%data%", onlineCourse.date);
 			$(".education-entry:last").append(formattedOnlineDates);
@@ -161,9 +167,27 @@ work.display();
 var projects = {
 	projects: [
 		{
+			title: 'Item Catalog',
+			dates: '2017',
+			description: 'Item catalog web app created using Flask. The application provides a list of items within a variety of categories and integrates third-party user registration and authentication.',
+			images: [ 'images/smartphone-640.jpg'
+			],
+			alt: 'smartphone',
+			url: 'https://github.com/Andrewalderton/fullstack-nanodegree-item-catalog'
+		},
+		{
+			title: 'Linux Server Configuration',
+			dates: '2017',
+			description: 'Prepared Linux server to host web applications, securing from a number of attack vectors. PostgreSQL database was configured, with an existing project deployed on the server.',
+			images: [ 'images/linux-640.jpg'
+			],
+			alt: 'typing on laptop',
+			url: 'https://github.com/Andrewalderton/fullstack-nanodegree-item-catalog'
+		},
+		{
 			title: 'Portfolio',
 			dates: '2016',
-			description: 'First Udacity Nanodegree Project. Developed a responsive website displaying images, descriptions and links to each of the projects completed during my courses.',
+			description: 'A responsive website displaying images, descriptions and links to my most recent completed work. API requests implemented to display Treehouse and Codewars data.',
 			images: [ 'images/office_640.jpg'
 			],
 			alt: 'office desk',
@@ -172,10 +196,10 @@ var projects = {
 		{
 			title: 'Arcade Game',
 			dates: '2016',
-			description: 'Recreated the classic arcade game, Frogger, for the Front-End Nanodegree. Added a number of entities to the game, including player characters and enemies.',
-			images: [ 'images/video-games_640.jpg'
+			description: 'Recreated the classic arcade game, Frogger, for the Udacity Front-End Nanodegree. Added a number of entities to the game, including player characters and enemies.',
+			images: [ 'images/arcade-640.jpg'
 			],
-			alt: 'xbox controller',
+			alt: 'joystick',
 			url: 'http://andrewalderton.github.io/frontend-nanodegree-arcade-game'
 		},
 		{
@@ -190,28 +214,19 @@ var projects = {
 		{
 			title: 'Neighbourhood Map',
 			dates: '2016',
-			description: 'Fifth Udacity Nanodegree Project. Developed a single-page application featuring a map of my neighbourhood.',
+			description: 'Single-page app featuring a map of my local area. Includes: map markers to identify popular locations, search function with auto-complete, and list-view for simple browsing of locations.',
 			images: [ 'images/ipad_640.jpg'
 			],
 			alt: 'iPad displaying a map',
 			url: 'http://andrewalderton.github.io/frontend-nanodegree-neighbourhood-map'
 		},
 		{
-			title: 'Health Tracker',
-			dates: '2016',
-			description: 'Developed a single page app, using Backbone, that tracks the user\'s calorie intake and other health-related metrics.',
-			images: [ 'images/fitness_640.jpg'
-			],
-			alt: 'fitness weights',
-			url: ''
-		},
-		{
 			title: 'Feed Reader Testing',
 			dates: '2016',
-			description: 'Final Udacity Nanodegree Project. In this project you are given a web-based application that reads RSS feeds.',
-			images: [ 'images/cow_640.jpg'
+			description: 'Project using Jasmine to test the functionality of an app that reads RSS feeds. Tests check the underlying business logic of the app, event handling and DOM manipulation.',
+			images: [ 'images/man-coding-640.jpg'
 			],
-			alt: 'cow',
+			alt: 'man coding',
 			url: 'http://andrewalderton.github.io/frontend-nanodegree-feedreader'
 		},
 		{
@@ -226,7 +241,7 @@ var projects = {
 		{
 			title: 'Dissertation Project',
 			dates: '2012',
-			description: 'Directed and edited two music videos as part of dissertation, working closely with unsigned bands and developing the project from conception to completion.',
+			description: 'Directed and edited two music videos as part of Masters dissertation, working closely with unsigned bands and developing the project from conception to completion.',
 			images: [ 'images/music.jpg'
 			],
 			alt: 'Band group photo',
@@ -255,9 +270,9 @@ var projects = {
 			$('.project-entry:last').append(formattedProjectDescription);
 
 			if (project.images.length > 0) {
-	  		project.images.forEach(function(image) {
-		   		var formattedProjectImage = HTMLprojectImage.replace('%data%', image).replace('%datum%', project.alt).replace('%datums%', project.url);
-		      $('.project-entry:last').append(formattedProjectImage);
+			project.images.forEach(function(image) {
+				var formattedProjectImage = HTMLprojectImage.replace('%data%', image).replace('%datum%', project.alt).replace('%datums%', project.url);
+			$('.project-entry:last').append(formattedProjectImage);
 				});
 			}
 		});
@@ -267,32 +282,26 @@ var projects = {
 projects.display();
 
 $(document).ready(function() {
-  $(".animsition").animsition({
-    inClass: 'fade-in',
-    outClass: 'fade-out',
-    inDuration: 1500,
-    outDuration: 800,
-    linkElement: '.animsition-link',
-    // e.g. linkElement: 'a:not([target="_blank"]):not([href^=#])'
-    loading: false,
-    loadingParentElement: 'body', //animsition wrapper element
-    loadingClass: 'animsition-loading',
-    loadingInner: '', // e.g '<img src="loading.svg" />'
-    timeout: false,
-    timeoutCountdown: 5000,
-    onLoadEvent: true,
-    browser: [ 'animation-duration', '-webkit-animation-duration'],
-    // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-    // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-    overlay : false,
-    overlayClass : 'animsition-overlay-slide',
-    overlayParentElement : 'body',
-    transition: function(url){ window.location.href = url; }
-  });
+	$(".animsition").animsition({
+		inClass: 'fade-in',
+		outClass: 'fade-out',
+		inDuration: 1500,
+		outDuration: 800,
+		linkElement: '.animsition-link',
+		// e.g. linkElement: 'a:not([target="_blank"]):not([href^=#])'
+		loading: false,
+		loadingParentElement: 'body', //animsition wrapper element
+		loadingClass: 'animsition-loading',
+		loadingInner: '', // e.g '<img src="loading.svg" />'
+		timeout: false,
+		timeoutCountdown: 5000,
+		onLoadEvent: true,
+		browser: [ 'animation-duration', '-webkit-animation-duration'],
+		// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+		// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+		overlay : false,
+		overlayClass : 'animsition-overlay-slide',
+		overlayParentElement : 'body',
+		transition: function(url){ window.location.href = url; }
+	});
 });
-
-
-
-
-
-
